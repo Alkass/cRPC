@@ -27,7 +27,7 @@ int main()
     Request req = {
       .ack = ACK,
       .id = 0,
-      .op = ADD, // other options are SUB, DIV, MUL
+      .op = ADD,       // other options are SUB, DIV, MUL
       .params = {8, 2} // You may change these two values to any 8-bit integer values
     };
 
@@ -36,10 +36,14 @@ int main()
     printRequest(req);
 
     // Send a stream of bytes in the form of a Request structure.
-    write(sockfd, (byte*)&req, sizeof(Request));
+    // NOTE: The 'if' expression is used to silence the compiler about
+    // complaining about an unused result (warn_unused_result).
+    if (write(sockfd, (byte*)&req, sizeof(Request)));
 
     // Read a stream of bytes in the form of a Response structure.
-    read(sockfd, (byte*)&res, sizeof(Response));
+    // NOTE: The 'if' expression is used to silence the compiler about
+    // complaining about an unused result (warn_unused_result).
+    if (read(sockfd, (byte*)&res, sizeof(Response)));
 
     printResponse(res);
     

@@ -87,7 +87,9 @@ int main() {
 
   // Read a stream of bytes in the form of a Request structure
   // from end-user.
-  read(comm_fd, (byte*)&req, sizeof(Request));
+  // NOTE: The 'if' expression is used to silence the compiler about
+  // complaining about an unused result (warn_unused_result).
+  if (read(comm_fd, (byte*)&req, sizeof(Request)));
 
   // Verify that ACK is set properly
   if (req.ack == ACK) {
@@ -109,7 +111,9 @@ int main() {
     printResponse(res);
 
     // Send a stream of bytes back in the form of a Response structure.
-    write(comm_fd, (byte*)&res, sizeof(Response));
+    // NOTE: The 'if' expression is used to silence the compiler about
+    // complaining about an unused result (warn_unused_result).
+    if (write(comm_fd, (byte*)&res, sizeof(Response)));
   }
   else {
     dprint("Unrecognized ACK. Failing here");
