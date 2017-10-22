@@ -26,4 +26,23 @@ typedef struct {
   byte data;
 } Response;
 
+void printRequest(Request req) {
+  printf("Request: ACK: %d, ID: %d, OP: %d, PARAMS: [%d, %d]",
+    req.ack,
+    req.id,
+    req.op,
+    req.params[0],
+    req.params[1]
+  );
+}
+
+void printResponse(Response res) {
+  printf("Response: ACK: %d, ID: %d, STATUS: %d, DATA: %d",
+    res.ack,
+    res.id,
+    res.status,
+    res.data
+  );
+}
+
 #endif
