@@ -4,15 +4,15 @@ Remote Procedure Call Demo Written in Pure C
 # Getting Started
 1. Build the binaries
     ```bash
-        $ make
+    $ make
     ```
 2. Run the server
     ```bash
-        $ ./server
+    $ ./server
     ```
 3. Start a new Terminal session and run the client
     ```bash
-        $ ./client
+    $ ./client
     ```
 
 # Author
