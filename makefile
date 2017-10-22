@@ -1,7 +1,12 @@
+include makefile.rules
+
 all: server client
 
 server:
-	g++ -Wall -Werror -o server server.cpp
+	$(CC) $(FLAGS) -o server server.c
 
 client:
-	g++ -Wall -Werror -o client client.cpp
+	$(CC) $(FLAGS) -o client client.c
+
+clean:
+	rm -f server client
