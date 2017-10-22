@@ -3,10 +3,10 @@ include makefile.rules
 all: server client
 
 server:
-	$(CC) $(FLAGS) -o server server.c
+	$(BUILD) -o server server.c
 
 client:
-	$(CC) $(FLAGS) -o client client.c
+	$(BUILD) -o client client.c
 
 clean:
 	rm -f server client
