@@ -1,5 +1,5 @@
 # cRPC
-Remote Procedure Call Demo Written in Pure C
+Remote Procedure Call Demo Written in Pure C. Check out [this blog post]() if you're interested in a code walk-through.
 
 # Getting Started
 1. Build the binaries
