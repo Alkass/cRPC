@@ -10,25 +10,25 @@
 #include "inc.h"
 
 int handleAdd(const Request* req, Response* res) {
-  printf("res->data = %d + %d", req->params[0], req->params[1]);
+  printf("res->data = %d + %d\n", req->params[0], req->params[1]);
   res->data = req->params[0] + req->params[1];
   return true;
 }
 
 int handleSub(const Request* req, Response* res) {
-  printf("res->data = %d - %d", req->params[0], req->params[1]);
+  printf("res->data = %d - %d\n", req->params[0], req->params[1]);
   res->data = req->params[0] - req->params[1];
   return true;
 }
 
 int handleMul(const Request* req, Response* res) {
-  printf("res->data = %d * %d", req->params[0], req->params[1]);
+  printf("res->data = %d * %d\n", req->params[0], req->params[1]);
   res->data = req->params[0] * req->params[1];
   return true;
 }
 
 int handleDiv(const Request* req, Response* res) {
-  printf("res->data = %d / %d", req->params[0], req->params[1]);
+  printf("res->data = %d / %d\n", req->params[0], req->params[1]);
   res->data = req->params[0] / req->params[1];
   return true;
 }
@@ -115,8 +115,10 @@ int main() {
     if (write(comm_fd, (byte*)&res, sizeof(Response)));
   }
   else {
-    printf("Unrecognized ACK (%d). Failing here", req.ack);
+    printf("Unrecognized ACK (%d). Failing here\n", req.ack);
   }
+  
+  close(comm_fd);
 
   return 0;
 }

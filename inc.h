@@ -15,7 +15,7 @@ typedef enum {
 typedef struct {
   byte ack;
   byte id;
-  byte op;
+  OpType op;
   byte params[2];
 } Request;
 
@@ -27,7 +27,7 @@ typedef struct {
 } Response;
 
 void printRequest(Request req) {
-  printf("Request: ACK: %d, ID: %d, OP: %d, PARAMS: [%d, %d]",
+  printf("Request: ACK: %d, ID: %d, OP: %d, PARAMS: [%d, %d]\n",
     req.ack,
     req.id,
     req.op,
@@ -37,7 +37,7 @@ void printRequest(Request req) {
 }
 
 void printResponse(Response res) {
-  printf("Response: ACK: %d, ID: %d, STATUS: %d, DATA: %d",
+  printf("Response: ACK: %d, ID: %d, STATUS: %d, DATA: %d\n",
     res.ack,
     res.id,
     res.status,

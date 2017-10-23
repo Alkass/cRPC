@@ -46,5 +46,7 @@ int main()
 
     printResponse(res);
     
+    close(sockfd);
+    
     return 0;
 }
