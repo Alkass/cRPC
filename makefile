@@ -1,12 +1,14 @@
 include makefile.rules
 
-all: server client
+all: build
 
-server:
-	$(BUILD) -o server server.c
+build: server client
 
-client:
-	$(BUILD) -o client client.c
+server: server.o
+	$(BUILD) -o server server.o
+
+client: client.o
+	$(BUILD) -o client client.o
 
 clean:
-	rm -f server client
+	rm -f *.o
