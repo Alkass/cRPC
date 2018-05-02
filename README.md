@@ -1,5 +1,5 @@
 # cRPC
-Remote Procedure Call Demo Written in Pure C. Check out [this blog post](https://iqdevs.github.io/c/2017/10/22/Remote-Procedure-Calls-in-C.html) if you're interested in a code walk-through.
+Remote Procedure Call Demo Written in Pure C. Check out [this blog post](https://iqdevs.github.io/Remote-Procedure-Calls-in-C/) if you're interested in a code walk-through.
 
 # Getting Started
 1. Build the binaries
