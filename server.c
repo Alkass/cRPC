@@ -88,7 +88,9 @@ int main() {
   // from end-user.
   // NOTE: The 'if' expression is used to silence the compiler about
   // complaining about an unused result (warn_unused_result).
-  if (read(comm_fd, (byte*)&req, sizeof(Request)));
+  if (read(comm_fd, (byte*)&req, sizeof(Request)) < 0) {
+    printf("server read fail here\n");
+  }
 
   // Verify that ACK is set properly
   if (req.ack == ACK) {
@@ -112,12 +114,14 @@ int main() {
     // Send a stream of bytes back in the form of a Response structure.
     // NOTE: The 'if' expression is used to silence the compiler about
     // complaining about an unused result (warn_unused_result).
-    if (write(comm_fd, (byte*)&res, sizeof(Response)));
+    if (write(comm_fd, (byte*)&res, sizeof(Response)) < 0) {
+      printf("server write fail here\n");
+    }
   }
   else {
     printf("Unrecognized ACK (%d). Failing here\n", req.ack);
   }
-  
+
   close(comm_fd);
 
   return 0;

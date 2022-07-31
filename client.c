@@ -37,16 +37,20 @@ int main()
     // Send a stream of bytes in the form of a Request structure.
     // NOTE: The 'if' expression is used to silence the compiler about
     // complaining about an unused result (warn_unused_result).
-    if (write(sockfd, (byte*)&req, sizeof(Request)));
+    if (write(sockfd, (byte*)&req, sizeof(Request)) < 0) {
+      printf("client write fail here\n");
+    }
 
     // Read a stream of bytes in the form of a Response structure.
     // NOTE: The 'if' expression is used to silence the compiler about
     // complaining about an unused result (warn_unused_result).
-    if (read(sockfd, (byte*)&res, sizeof(Response)));
+    if (read(sockfd, (byte*)&res, sizeof(Response)) < 0) {
+      printf("client read fail here\n");
+    }
 
     printResponse(res);
-    
+
     close(sockfd);
-    
+
     return 0;
 }
