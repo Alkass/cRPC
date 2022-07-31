@@ -11,4 +11,4 @@ client: client.o
 	$(BUILD) -o client client.o
 
 clean:
-	rm -f *.o
+	rm -f *.o client server
