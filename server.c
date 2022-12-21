@@ -9,31 +9,31 @@
 #include <stdbool.h>
 #include "inc.h"
 
-int handleAdd(const Request* req, Response* res) {
+bool handleAdd(const Request* req, Response* res) {
   printf("res->data = %d + %d\n", req->params[0], req->params[1]);
   res->data = req->params[0] + req->params[1];
   return true;
 }
 
-int handleSub(const Request* req, Response* res) {
+bool handleSub(const Request* req, Response* res) {
   printf("res->data = %d - %d\n", req->params[0], req->params[1]);
   res->data = req->params[0] - req->params[1];
   return true;
 }
 
-int handleMul(const Request* req, Response* res) {
+bool handleMul(const Request* req, Response* res) {
   printf("res->data = %d * %d\n", req->params[0], req->params[1]);
   res->data = req->params[0] * req->params[1];
   return true;
 }
 
-int handleDiv(const Request* req, Response* res) {
+bool handleDiv(const Request* req, Response* res) {
   printf("res->data = %d / %d\n", req->params[0], req->params[1]);
   res->data = req->params[0] / req->params[1];
   return true;
 }
 
-int handleRequest(const Request* req, Response* res) {
+bool handleRequest(const Request* req, Response* res) {
   switch (req->op) {
     case ADD:
       return handleAdd(req, res);
